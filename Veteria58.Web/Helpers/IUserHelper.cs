@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Veteria58.Web.Data.Entities;
-
+using Veteria58.Web.Models;
 
 namespace Veteria58.Web.Helpers
 {
@@ -21,6 +21,9 @@ namespace Veteria58.Web.Helpers
 
         Task<bool> IsUserInRoleAsync(User user, string roleName);
 
+        Task<SignInResult> LoginAsync(LoginViewModel model);
+
+        Task LogoutAsync();
 
 
     }

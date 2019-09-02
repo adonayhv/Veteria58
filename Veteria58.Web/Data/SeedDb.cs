@@ -40,12 +40,14 @@ namespace Veteria58.Web.Data
             await _userHelper.CheckRoleAsync("Customer");
         }
 
-        private async Task<User> CheckUserAsync(string document, 
+        private async Task<User> CheckUserAsync(
+            string document, 
             string firstName, 
             string lastName, 
             string email, 
             string phone, 
-            string address, string role)
+            string address, 
+            string role)
         {
             var user = await _userHelper.GetUserByEmailAsync(email);
             if (user == null)

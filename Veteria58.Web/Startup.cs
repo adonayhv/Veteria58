@@ -56,9 +56,7 @@ namespace Veteria58.Web
             });
             services.AddTransient<SeedDb>();
            services.AddScoped<IUserHelper,  UserHelper>();
-           
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+          services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,7 +75,6 @@ namespace Veteria58.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
-
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>
