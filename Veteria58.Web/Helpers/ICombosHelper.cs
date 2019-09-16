@@ -9,5 +9,7 @@ namespace Veteria58.Web.Helpers
   public  interface ICombosHelper
     {
          IEnumerable<SelectListItem> GetComboPetTypes();
+        IEnumerable<SelectListItem> GetComboServiceTypes();
+
     }
 }

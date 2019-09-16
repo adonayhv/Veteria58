@@ -9,11 +9,11 @@ namespace Veteria58.Web.Helpers
 {
     public class CombosHelper : ICombosHelper
     {
-        private readonly DataContext _datacontex;
+        private readonly DataContext _dataContext;
 
         public CombosHelper(DataContext datacontex)
         {
-            _datacontex = datacontex;
+            _dataContext = datacontex;
         }
         public IEnumerable<SelectListItem> GetComboPetTypes()
 
@@ -32,7 +32,7 @@ namespace Veteria58.Web.Helpers
             //}
             //esto sustituye a lo de arriba
 
-            var list = _datacontex.PetTypes.Select(pt => new SelectListItem
+            var list = _dataContext.PetTypes.Select(pt => new SelectListItem
             {
                 Text=pt.Name,
                 Value=$"{pt.Id}"
@@ -46,6 +46,25 @@ namespace Veteria58.Web.Helpers
             });
             return list;
         }
-        
+
+        public IEnumerable<SelectListItem> GetComboServiceTypes()
+        {
+            var list = _dataContext.ServiceTypes.Select(st => new SelectListItem
+            {
+                Text = st.Name,
+                Value = $"{st.Id}"
+            }).OrderBy(st => st.Text).ToList();
+
+
+            list.Insert(0, new SelectListItem
+            {
+                Text = "(Select a service type...)",
+                Value = "0"
+            });
+
+            return list;
+        }
+
+
     }
 }
